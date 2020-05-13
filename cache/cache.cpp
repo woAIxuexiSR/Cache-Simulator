@@ -89,6 +89,7 @@ void Cache::HandleRequest(uint64_t addr, int bytes, int read,
 			lower_->HandleRequest(addr, bytes, 0, content, hit, time);
 			hit = 0;
 			time += latency_.bus_latency + latency_.hit_latency;
+			stats_.access_time += time;
 			return;
 		}
 
